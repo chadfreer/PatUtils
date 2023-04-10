@@ -222,6 +222,12 @@ L1PrefiringWeightProducer::~L1PrefiringWeightProducer() {}
 void L1PrefiringWeightProducer::produce(edm::Event& iEvent, const edm::EventSetup& iSetup) {
   using namespace edm;
 
+
+  if(auto handle = iEvent.getHandle(photons_token_)){
+     
+  }else{
+    return;
+  }
   //Photons
   const std::vector<ScoutingPhoton>& thePhotons = iEvent.get(photons_token_);
   //const std::vector<pat::Photon>& thePhotons = iEvent.get(photons_token_);
